@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+<h1  style="color:blue;font-size:46px;"> To check University dept go to console<h1>
+    <script>
+		class University {
+		  constructor(universityName) {
+			this.universityName = universityName;
+			this.departments = [];
+		  }
+			 addDepartment(departmentName) {
+				const indexadd = this.departments.indexOf(departmentName);
+				if (indexadd === -1) {
+					this.departments.push(departmentName);
+					console.log(`Department "${departmentName}" added.`);
+				} else {
+					console.log(`Department "${departmentName}" already exists.`);
+				}
+			}
+
+
+			  removeDepartment(departmentName) {
+				const indexr = this.departments.indexOf(departmentName);
+				if (indexr > -1) {
+				  this.departments.splice(indexr, 1);
+				  console.log(`Department "${departmentName}" removed.`);
+				} else {
+				  console.log(`Department "${departmentName}" not found.`);
+				}
+			  }
+
+			  displayDepartments() {
+				console.log(`Departments for ${this.universityName}:`);
+				if (this.departments.length === 0) {
+				  console.log("No departments currently.");
+				} else {
+				  this.departments.forEach((department) => {
+					console.log(`- ${department}`);
+				  });
+				}
+			  }
+		}
+
+		const Mu = new University("Madras University");
+
+		Mu.addDepartment("Computer Science");
+		Mu.addDepartment("Physics");
+		Mu.addDepartment("Mathematics");
+		Mu.addDepartment("Computer Application");
+		Mu.addDepartment("Chemistry");
+		Mu.addDepartment("Chemistry");
+
+
+		Mu.displayDepartments();
+
+
+		Mu.removeDepartment("Physics");
+
+		Mu.displayDepartments();
+
+    </script>
+</body>
+</html>
